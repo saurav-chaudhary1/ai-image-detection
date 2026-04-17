@@ -1,0 +1,204 @@
+Deepfake Detection Results Log
+==================================================
+Generated at: 2026-04-17 06:33:34.441589
+
+Image: TestImages/test1.jpg
+Ground Truth: REAL
+
+ViT_8k:
+  Prediction : REAL
+  Confidence : 0.7959
+  Prob       : 0.2041
+
+Eff_8k:
+  Prediction : REAL
+  Confidence : 1.0
+  Prob       : 0.0
+
+ViT_25k:
+  Prediction : REAL
+  Confidence : 0.9125
+  Prob       : 0.0875
+
+Eff_25k:
+  Prediction : REAL
+  Confidence : 1.0
+  Prob       : 0.0
+
+--------------------------------------------------
+
+Image: TestImages/test2.jpg
+Ground Truth: REAL
+
+ViT_8k:
+  Prediction : REAL
+  Confidence : 0.7798
+  Prob       : 0.2202
+
+Eff_8k:
+  Prediction : REAL
+  Confidence : 0.9689
+  Prob       : 0.0311
+
+ViT_25k:
+  Prediction : REAL
+  Confidence : 0.9811
+  Prob       : 0.0189
+
+Eff_25k:
+  Prediction : REAL
+  Confidence : 0.93
+  Prob       : 0.07
+
+--------------------------------------------------
+
+Image: TestImages/test3.jpg
+Ground Truth: FAKE
+
+ViT_8k:
+  Prediction : REAL
+  Confidence : 0.9326
+  Prob       : 0.0674
+
+Eff_8k:
+  Prediction : FAKE
+  Confidence : 0.9976
+  Prob       : 0.9976
+
+ViT_25k:
+  Prediction : REAL
+  Confidence : 0.7486
+  Prob       : 0.2514
+
+Eff_25k:
+  Prediction : FAKE
+  Confidence : 0.9948
+  Prob       : 0.9948
+
+--------------------------------------------------
+
+Image: TestImages/test4.jpg
+Ground Truth: FAKE
+
+ViT_8k:
+  Prediction : REAL
+  Confidence : 0.9731
+  Prob       : 0.0269
+
+Eff_8k:
+  Prediction : REAL
+  Confidence : 0.9956
+  Prob       : 0.0044
+
+ViT_25k:
+  Prediction : FAKE
+  Confidence : 0.7205
+  Prob       : 0.7205
+
+Eff_25k:
+  Prediction : REAL
+  Confidence : 0.997
+  Prob       : 0.003
+
+--------------------------------------------------
+
+Image: TestImages/test5.jpg
+Ground Truth: FAKE
+
+ViT_8k:
+  Prediction : REAL
+  Confidence : 0.9656
+  Prob       : 0.0344
+
+Eff_8k:
+  Prediction : FAKE
+  Confidence : 0.9685
+  Prob       : 0.9685
+
+ViT_25k:
+  Prediction : FAKE
+  Confidence : 0.9354
+  Prob       : 0.9354
+
+Eff_25k:
+  Prediction : FAKE
+  Confidence : 0.9999
+  Prob       : 0.9999
+
+--------------------------------------------------
+
+Image: TestImages/test6.jpg
+Ground Truth: FAKE
+
+ViT_8k:
+  Prediction : FAKE
+  Confidence : 0.7162
+  Prob       : 0.7162
+
+Eff_8k:
+  Prediction : FAKE
+  Confidence : 1.0
+  Prob       : 1.0
+
+ViT_25k:
+  Prediction : REAL
+  Confidence : 0.8344
+  Prob       : 0.1656
+
+Eff_25k:
+  Prediction : FAKE
+  Confidence : 0.9979
+  Prob       : 0.9979
+
+--------------------------------------------------
+
+Image: TestImages/test7.jpg
+Ground Truth: REAL
+
+ViT_8k:
+  Prediction : REAL
+  Confidence : 0.8794
+  Prob       : 0.1206
+
+Eff_8k:
+  Prediction : REAL
+  Confidence : 1.0
+  Prob       : 0.0
+
+ViT_25k:
+  Prediction : REAL
+  Confidence : 0.9463
+  Prob       : 0.0537
+
+Eff_25k:
+  Prediction : REAL
+  Confidence : 1.0
+  Prob       : 0.0
+
+--------------------------------------------------
+
+Image: TestImages/test8.jpg
+Ground Truth: FAKE
+
+ViT_8k:
+  Prediction : REAL
+  Confidence : 0.5787
+  Prob       : 0.4213
+
+Eff_8k:
+  Prediction : FAKE
+  Confidence : 0.8388
+  Prob       : 0.8388
+
+ViT_25k:
+  Prediction : FAKE
+  Confidence : 0.6424
+  Prob       : 0.6424
+
+Eff_25k:
+  Prediction : FAKE
+  Confidence : 0.9646
+  Prob       : 0.9646
+
+--------------------------------------------------
+

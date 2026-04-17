@@ -1,0 +1,50 @@
+2026-04-02 15:12:59 | INFO     | Logger initialised. Log file: logs/run_2026-04-02_15-12-59.log
+2026-04-02 15:12:59 | INFO     | Run started
+2026-04-02 15:12:59 | INFO     | Device: cuda
+2026-04-02 15:12:59 | INFO     | Config → parquet=/kaggle/input/datasets/sauravchaudhary19/openfaketestfile1/test-00000-of-00007.parquet | batch=32 | epochs=10 | lr=0.0002 | wd=0.0001 | patience=3
+2026-04-02 15:12:59 | INFO     | Building ViT dataloaders...
+2026-04-02 15:13:37 | INFO     | Building EfficientNet dataloaders...
+2026-04-02 15:13:46 | INFO     | ============================================================
+2026-04-02 15:13:46 | INFO     | Training: VIT  |  Device: cuda
+2026-04-02 15:13:46 | INFO     | ============================================================
+2026-04-02 15:17:33 | INFO     | [ViT] Epoch 001/10 | Train Loss: 0.6774 | Train Acc: 59.09% | Val Loss: 0.6373 | Val Acc: 63.30% | LR: 1.95e-04 | Time: 226.5s
+2026-04-02 15:17:34 | INFO     |   ✓ New best checkpoint saved → checkpoints/ViT_best.pth  (val_acc=63.30%)
+2026-04-02 15:21:36 | INFO     | [ViT] Epoch 002/10 | Train Loss: 0.6488 | Train Acc: 63.43% | Val Loss: 0.6389 | Val Acc: 62.60% | LR: 1.81e-04 | Time: 242.4s
+2026-04-02 15:25:39 | INFO     | [ViT] Epoch 003/10 | Train Loss: 0.6288 | Train Acc: 64.35% | Val Loss: 0.6095 | Val Acc: 70.34% | LR: 1.59e-04 | Time: 243.2s
+2026-04-02 15:25:40 | INFO     |   ✓ New best checkpoint saved → checkpoints/ViT_best.pth  (val_acc=70.34%)
+2026-04-02 15:29:42 | INFO     | [ViT] Epoch 004/10 | Train Loss: 0.5951 | Train Acc: 69.18% | Val Loss: 0.6192 | Val Acc: 65.18% | LR: 1.31e-04 | Time: 242.3s
+2026-04-02 15:33:45 | INFO     | [ViT] Epoch 005/10 | Train Loss: 0.5677 | Train Acc: 71.39% | Val Loss: 0.5773 | Val Acc: 70.27% | LR: 1.01e-04 | Time: 243.1s
+2026-04-02 15:37:48 | INFO     | [ViT] Epoch 006/10 | Train Loss: 0.4991 | Train Acc: 76.00% | Val Loss: 0.5715 | Val Acc: 70.81% | LR: 6.98e-05 | Time: 242.5s
+2026-04-02 15:37:49 | INFO     |   ✓ New best checkpoint saved → checkpoints/ViT_best.pth  (val_acc=70.81%)
+2026-04-02 15:41:52 | INFO     | [ViT] Epoch 007/10 | Train Loss: 0.4186 | Train Acc: 80.34% | Val Loss: 0.6604 | Val Acc: 70.11% | LR: 4.20e-05 | Time: 242.8s
+2026-04-02 15:45:55 | INFO     | [ViT] Epoch 008/10 | Train Loss: 0.3051 | Train Acc: 86.98% | Val Loss: 0.6105 | Val Acc: 72.30% | LR: 2.00e-05 | Time: 243.6s
+2026-04-02 15:45:56 | INFO     |   ✓ New best checkpoint saved → checkpoints/ViT_best.pth  (val_acc=72.30%)
+2026-04-02 15:50:00 | INFO     | [ViT] Epoch 009/10 | Train Loss: 0.2121 | Train Acc: 91.62% | Val Loss: 0.7891 | Val Acc: 71.44% | LR: 5.87e-06 | Time: 243.7s
+2026-04-02 15:50:00 | WARNING  | [EarlyStopping] No improvement for 3 epochs. Stopping early.
+2026-04-02 15:50:00 | INFO     | [ViT] Training complete. Best val acc: 72.30%
+2026-04-02 15:50:00 | INFO     | ============================================================
+2026-04-02 15:50:00 | INFO     | Training: EFFICIENTNET  |  Device: cuda
+2026-04-02 15:50:00 | INFO     | ============================================================
+2026-04-02 15:51:22 | INFO     | [EfficientNet] Epoch 001/10 | Train Loss: 0.4296 | Train Acc: 80.12% | Val Loss: 0.2942 | Val Acc: 87.09% | LR: 1.95e-04 | Time: 82.2s
+2026-04-02 15:51:22 | INFO     |   ✓ New best checkpoint saved → checkpoints/EfficientNet_best.pth  (val_acc=87.09%)
+2026-04-02 15:52:45 | INFO     | [EfficientNet] Epoch 002/10 | Train Loss: 0.2506 | Train Acc: 89.83% | Val Loss: 0.2719 | Val Acc: 88.50% | LR: 1.81e-04 | Time: 83.3s
+2026-04-02 15:52:45 | INFO     |   ✓ New best checkpoint saved → checkpoints/EfficientNet_best.pth  (val_acc=88.50%)
+2026-04-02 15:54:08 | INFO     | [EfficientNet] Epoch 003/10 | Train Loss: 0.1628 | Train Acc: 93.41% | Val Loss: 0.2715 | Val Acc: 89.28% | LR: 1.59e-04 | Time: 82.3s
+2026-04-02 15:54:08 | INFO     |   ✓ New best checkpoint saved → checkpoints/EfficientNet_best.pth  (val_acc=89.28%)
+2026-04-02 15:55:30 | INFO     | [EfficientNet] Epoch 004/10 | Train Loss: 0.1076 | Train Acc: 96.06% | Val Loss: 0.2663 | Val Acc: 90.14% | LR: 1.31e-04 | Time: 82.0s
+2026-04-02 15:55:30 | INFO     |   ✓ New best checkpoint saved → checkpoints/EfficientNet_best.pth  (val_acc=90.14%)
+2026-04-02 15:56:52 | INFO     | [EfficientNet] Epoch 005/10 | Train Loss: 0.0674 | Train Acc: 97.79% | Val Loss: 0.3018 | Val Acc: 89.67% | LR: 1.01e-04 | Time: 82.0s
+2026-04-02 15:58:14 | INFO     | [EfficientNet] Epoch 006/10 | Train Loss: 0.0457 | Train Acc: 98.68% | Val Loss: 0.2968 | Val Acc: 90.30% | LR: 6.98e-05 | Time: 82.5s
+2026-04-02 15:58:15 | INFO     |   ✓ New best checkpoint saved → checkpoints/EfficientNet_best.pth  (val_acc=90.30%)
+2026-04-02 15:59:37 | INFO     | [EfficientNet] Epoch 007/10 | Train Loss: 0.0347 | Train Acc: 98.93% | Val Loss: 0.3161 | Val Acc: 90.38% | LR: 4.20e-05 | Time: 82.1s
+2026-04-02 15:59:37 | INFO     |   ✓ New best checkpoint saved → checkpoints/EfficientNet_best.pth  (val_acc=90.38%)
+2026-04-02 15:59:37 | WARNING  | [EarlyStopping] No improvement for 3 epochs. Stopping early.
+2026-04-02 15:59:37 | INFO     | [EfficientNet] Training complete. Best val acc: 90.38%
+2026-04-02 16:00:09 | INFO     | ============================================================
+2026-04-02 16:00:09 | INFO     | FINAL RESULTS SUMMARY
+2026-04-02 16:00:09 | INFO     | Model                Test Acc        AUC     Imgs/sec
+2026-04-02 16:00:09 | INFO     | -------------------------------------------------------
+2026-04-02 16:00:09 | INFO     | ViT                    70.89%     0.7831        70.9
+2026-04-02 16:00:09 | INFO     | EfficientNet           88.03%     0.9537       101.7
+2026-04-02 16:00:09 | INFO     | ============================================================
+2026-04-02 16:00:09 | INFO     | Log saved to: logs/run_2026-04-02_15-12-59.log

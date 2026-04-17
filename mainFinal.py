@@ -1,0 +1,124 @@
+import torch
+from logger import setup_logger
+from datasetFinal import build_dataloaders
+from train import train_model
+from evaluate import evaluate_all
+from logger import setup_logger
+
+
+DATASET_NAME  = "ComplexDataLab/OpenFake"    
+BATCH_SIZE    = 32                          
+NUM_EPOCHS    = 10
+LR            = 2e-4
+WEIGHT_DECAY  = 1e-4
+PATIENCE      = 3
+NUM_WORKERS   = 4
+CHECKPOINT_DIR = "checkpoints"
+RESULTS_DIR    = "results"
+
+import torchvision.models as models
+vit_model = models.vit_b_16(weights="IMAGENET1K_V1")
+eff_model = models.efficientnet_b1(weights="IMAGENET1K_V1")
+
+import torch.nn as nn
+
+vit_model.heads = nn.Linear(768 , 1)
+eff_model.classifier[1] = nn.Linear(1280 , 1)
+
+
+
+def main():
+
+    log, log_path = setup_logger(log_dir="logs")
+    log.info("Run started")
+ 
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    log.info(f"Device: {device}")
+ 
+    log.info(
+        f"Config → parquet={DATASET_NAME} | batch={BATCH_SIZE} | "
+        f"epochs={NUM_EPOCHS} | lr={LR} | wd={WEIGHT_DECAY} | patience={PATIENCE}"
+    )
+ 
+    log.info("Building ViT dataloaders...")
+    vit_train, vit_val, vit_test, class_counts = build_dataloaders(
+        dataset_name =DATASET_NAME,
+        model_name="vit",
+        batch_size=BATCH_SIZE,
+        num_workers=NUM_WORKERS,
+        data_files=[
+                "hf://datasets/ComplexDataLab/OpenFake/data/test-00000-of-00007.parquet",
+                "hf://datasets/ComplexDataLab/OpenFake/data/test-00001-of-00007.parquet",
+                "hf://datasets/ComplexDataLab/OpenFake/data/test-00001-of-00007.parquet",
+            ]
+    )
+ 
+    log.info("Building EfficientNet dataloaders...")
+    eff_train, eff_val, eff_test, _ = build_dataloaders(
+        dataset_name=DATASET_NAME,
+        model_name="efficientnet",
+        batch_size=BATCH_SIZE,
+        num_workers=NUM_WORKERS,
+        data_files=[
+                "hf://datasets/ComplexDataLab/OpenFake/data/test-00000-of-00007.parquet",
+                "hf://datasets/ComplexDataLab/OpenFake/data/test-00001-of-00007.parquet",
+                "hf://datasets/ComplexDataLab/OpenFake/data/test-00001-of-00007.parquet",
+            ]
+    )
+ 
+
+    vit_history = train_model(
+        model=vit_model,
+        model_name="ViT",
+        train_loader=vit_train,
+        val_loader=vit_val,
+        class_counts=class_counts,
+        num_epochs=NUM_EPOCHS,
+        lr=LR,
+        weight_decay=WEIGHT_DECAY,
+        patience=PATIENCE,
+        checkpoint_dir=CHECKPOINT_DIR,
+        device=device,
+    )
+ 
+
+    eff_history = train_model(
+        model=eff_model,
+        model_name="EfficientNet",
+        train_loader=eff_train,
+        val_loader=eff_val,
+        class_counts=class_counts,
+        num_epochs=NUM_EPOCHS,
+        lr=LR,
+        weight_decay=WEIGHT_DECAY,
+        patience=PATIENCE,
+        checkpoint_dir=CHECKPOINT_DIR,
+        device=device,
+    )
+ 
+
+    summary = evaluate_all(
+        models       = {"ViT": vit_model, "EfficientNet": eff_model},
+        test_loaders = {"ViT": vit_test,  "EfficientNet": eff_test},
+        histories    = {"ViT": vit_history, "EfficientNet": eff_history},
+        device       = device,
+        save_dir     = RESULTS_DIR,
+    )
+ 
+
+    log.info("=" * 60)
+    log.info("FINAL RESULTS SUMMARY")
+    log.info(f"{'Model':<18} {'Test Acc':>10} {'AUC':>10} {'Imgs/sec':>12}")
+    log.info("-" * 55)
+    for name, metrics in summary.items():
+        log.info(
+            f"{name:<18} {metrics['test_acc']:>9.2f}% "
+            f"{metrics['auc']:>10.4f} "
+            f"{metrics['throughput']:>11.1f}"
+        )
+    log.info("=" * 60)
+    log.info(f"Log saved to: {log_path}")
+ 
+ 
+if __name__ == "__main__":
+    main()
